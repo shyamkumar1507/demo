@@ -1,0 +1,47 @@
+package com.example.demo;
+
+public class RotateArray {
+
+    public static void rotate(int[] nums, int k) {
+
+        int arrayLength = nums.length;
+
+
+        //From PDF-1. Using Intermediate array
+        if (k > arrayLength) {
+            k = k % arrayLength;
+        }
+        int[] rotatedArray = new int[nums.length];
+        for (int i=0; i<k; i++){
+            rotatedArray[i] = nums[arrayLength-k+i];
+        }
+
+        int j=0;
+        for (int i=k; i<arrayLength; i++){
+            rotatedArray[i] = nums[j];
+            j++;
+        }
+
+        System.arraycopy(rotatedArray,0, nums, 0, arrayLength);
+
+
+//My Way
+//        for (int i = 0; i < arrayLength; i++) {
+//
+//            try
+//            {
+//                rotatedArray[i] = nums[i+k];
+//            } catch (Exception e) {
+//                rotatedArray[i] = nums[i+k-arrayLength];
+//            }
+//        }
+        for (int i = 0; i < arrayLength; i++) {
+            System.out.print(rotatedArray[i] + " ");
+        };
+    }
+    public static void main(String[] args) {
+        int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
+        int k = 3;
+        rotate(nums, k);
+    }
+}
