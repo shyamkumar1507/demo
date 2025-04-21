@@ -32,8 +32,8 @@ public class StringPatternMatching {
     }
 
     public static void main(String[] args) {
-        String s = "aa";
-        String p = "a*";
+        String s = "aab";
+        String p = "c*a*b";
         System.out.println(isMatch(s, p));
     }
 }
